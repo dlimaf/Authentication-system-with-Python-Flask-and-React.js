@@ -12,7 +12,11 @@ export const Navbar = () => {
 					<Link to="/demo">
 						<button className="btn btn-primary">Check the Context in action</button>
 					</Link>
+					<Link to="/login">
+					<button class="btn btn-primary ms-4" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Login</button>
+					</Link>
 				</div>
+
 			</div>
 		</nav>
 	);
