@@ -9,17 +9,6 @@ import datetime
 
 api = Blueprint('api', __name__)
 
-
-@api.route('/hello', methods=['POST', 'GET'])
-def handle_hello():
-
-    response_body = {
-        "message": "Hello! I'm a message that came from the backend, check the network tab on the google inspector and you will see the GET request"
-    }
-
-    return jsonify(response_body), 200
-
-
 @api.route("/signup", methods=['POST'])
 def signup():
     body= request.get_json()
@@ -64,11 +53,11 @@ def login():
 
 
 
-@api.route("/check", methods=['GET'])
+@api.route("/private", methods=['GET'])
 @jwt_required()
-def check_user():
-    identidad = get_jwt_identity()
+def private_route():
+    current_user= get_jwt_identity()
     return jsonify({
         "logeado":True,
-        "identidad":identidad
+        "identidad":current_user
     })
