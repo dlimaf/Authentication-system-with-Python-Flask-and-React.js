@@ -3,7 +3,7 @@ import { Navigate } from "react-router-dom";
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			token: localStorage.getItem("token"),
+			token: localStorage.getItem("user"),
 			message: null,
 			demo: [
 				{
@@ -56,9 +56,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			logout: async () => {
 				setStore({ token: null });
-				localStorage.removeItem("token");
-				return <Navigate to="/login" />;
-			  },
+				localStorage.removeItem("user");
+				
+		},
 
 
 		}
