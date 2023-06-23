@@ -8,12 +8,22 @@ export const Ingresar = () => {
     const { store, actions} = useContext(Context)
     const [email,setEmail] = useState('');
     const [password,setPassword] = useState('');
+    const navigate = useNavigate()
 
 
     const handleSubmit = (e) => {
         e.preventDefault()
         actions.login(email, password);
-        
+        setEmail('')
+        setPassword('')
+        setTimeout(() => {
+        if (store.token) {
+            navigate('/private')
+        }
+        else 
+            swal("¡Error!", "Usuario o contraseña errónea :(", "error"); 
+
+    },2000)
     }
     return (
         <div className="container mt-5 mb-5">
